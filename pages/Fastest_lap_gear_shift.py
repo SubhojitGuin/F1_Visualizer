@@ -34,16 +34,17 @@ with col_input:
                 # Fetch session data
                 session = fastf1.get_session(year, grand_prix, session_type)
                 session.load()
-                progress_bar.progress(40)
+                progress_bar.progress(30)
 
                 # Extract fastest lap data
                 lap = session.laps.pick_fastest()
                 tel = lap.get_telemetry()
-                progress_bar.progress(60)
+                progress_bar.progress(50)
 
                 # Process telemetry data
                 x = np.array(tel['X'].values)
                 y = np.array(tel['Y'].values)
+                progress_bar.progress(70)
 
                 points = np.array([x, y]).T.reshape(-1, 1, 2)
                 segments = np.concatenate([points[:-1], points[1:]], axis=1)
@@ -81,7 +82,7 @@ with col_input:
                 st.success("Graph generated successfully! 🎉")
 
             except Exception as e:
-                st.error(f"Error fetching session data: {e}")
+                st.error(f"{e}")
                 progress_bar.progress(0)
 
 # Always display the graph if available

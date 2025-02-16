@@ -2,9 +2,10 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import fastf1
 import fastf1.plotting
+import io
 
 # Set page configuration
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title="F1 Driver Position Plot", page_icon="🏎️")
 
 # Set up FastF1's dark color scheme
 fastf1.plotting.setup_mpl(mpl_timedelta_support=False, misc_mpl_mods=False, color_scheme='fastf1')
@@ -14,17 +15,25 @@ st.title("F1 Driver Position Plot")
 # Create two columns: Graph (Left) | User Input (Right)
 col_graph, col_input = st.columns([4, 1])
 
+# Initialize session state variables
+if "fig" not in st.session_state:
+    st.session_state.fig = None
+if "img_buf" not in st.session_state:
+    st.session_state.img_buf = None
+
 with col_input:
     st.write("### Select F1 Session")
-    year = st.selectbox("Year", list(range(1950, 2026)), index=list(range(1950, 2026)).index(2024))
+    year = st.selectbox("Year", list(range(2018, 2024)), index=3)
     gp = st.text_input("Grand Prix (e.g., Monaco)", "Monaco")
     identifier = st.selectbox("Session Type", ["R", "Q", "FP1", "FP2", "FP3"], index=0)
 
     if st.button("Generate Plot"):
         with st.spinner("Loading session data..."):
+            progress_bar = st.progress(10)
             try:
                 session = fastf1.get_session(year, gp, identifier)
                 session.load(telemetry=False, weather=False)
+                progress_bar.progress(40)
 
                 fig, ax = plt.subplots(figsize=(10, 6))
 
@@ -42,8 +51,33 @@ with col_input:
                 ax.legend(bbox_to_anchor=(1.0, 1.02))
                 plt.tight_layout()
 
-                with col_graph:
-                    st.pyplot(fig)
+                progress_bar.progress(80)
+                
+                # Save figure for persistent display and download
+                img_buf = io.BytesIO()
+                fig.savefig(img_buf, format="png", bbox_inches="tight")
+                img_buf.seek(0)
 
+                # Store in session state
+                st.session_state.fig = fig
+                st.session_state.img_buf = img_buf
+
+                progress_bar.progress(100)
+                st.success("Graph generated successfully! 🎉")
+            
             except Exception as e:
                 st.error(f"Failed to load session data: {e}")
+                progress_bar.progress(0)
+
+# Always display the graph if available
+if st.session_state.fig:
+    with col_graph:
+        st.pyplot(st.session_state.fig)
+
+    # Download button (Remains visible)
+    st.download_button(
+        label="📥 Download Graph",
+        data=st.session_state.img_buf,
+        file_name=f"F1_Driver_Position_{year}.png",
+        mime="image/png",
+    )
