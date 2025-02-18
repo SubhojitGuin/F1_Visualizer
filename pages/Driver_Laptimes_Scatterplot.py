@@ -19,6 +19,8 @@ col_graph, col_input = st.columns([4, 1])
 
 if "laptime_plot_img_buf" not in st.session_state:
     st.session_state.laptime_plot_img_buf = None
+if "dlc_drivers" not in st.session_state:
+    st.session_state.dlc_drivers = []
 
 with col_input:
     st.write("### Select F1 Session")
@@ -35,7 +37,7 @@ with col_input:
                 progress_bar.progress(50)
 
                 st.session_state.session = race
-                st.session_state.drivers = pd.unique(race.laps['Driver'])
+                st.session_state.dlc_drivers = pd.unique(race.laps['Driver'])
 
                 progress_bar.progress(100)
                 st.success("Session loaded successfully!")
@@ -44,7 +46,7 @@ with col_input:
                 st.session_state.session = None
 
     if st.session_state.get("session"):
-        driver = st.selectbox("Driver", st.session_state.drivers)
+        driver = st.selectbox("Driver", st.session_state.dlc_drivers)
 
         if st.button("Generate Plot"):
             with st.spinner("Generating plot..."):
