@@ -25,7 +25,7 @@ with col_input:
     grand_prix = st.text_input("Grand Prix (e.g., Austrian Grand Prix)", "Austrian Grand Prix")
     session_type = st.selectbox("Session Type", ['FP1', 'FP2', 'FP3', 'Q', 'S', 'SS', 'SQ', 'R'], index=0)
 
-    if st.button("Load Data"):
+    if st.button("Generate Plot"):
         with st.spinner("Fetching session data..."):
             progress_bar = st.progress(10)
             

@@ -19,6 +19,9 @@ col_graph, col_input = st.columns([4, 1])
 if "osttl_img_buf" not in st.session_state:
     st.session_state.osttl_img_buf = None
 
+if "osttl_drivers" not in st.session_state:
+    st.session_state.osttl_drivers = []
+
 with col_input:
     st.write("### Select F1 Session")
     year = st.selectbox("Year", list(range(2018, 2026)), index=3)
