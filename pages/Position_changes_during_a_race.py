@@ -16,10 +16,8 @@ st.title("F1 Driver Position Plot")
 col_graph, col_input = st.columns([4, 1])
 
 # Initialize session state variables
-if "fig" not in st.session_state:
-    st.session_state.fig = None
-if "img_buf" not in st.session_state:
-    st.session_state.img_buf = None
+if "pcdr_img_buf" not in st.session_state:
+    st.session_state.pcdr_img_buf = None
 
 with col_input:
     st.write("### Select F1 Session")
@@ -59,8 +57,7 @@ with col_input:
                 img_buf.seek(0)
 
                 # Store in session state
-                st.session_state.fig = fig
-                st.session_state.img_buf = img_buf
+                st.session_state.pcdr_img_buf = img_buf
 
                 progress_bar.progress(100)
                 st.success("Graph generated successfully! 🎉")
@@ -69,15 +66,18 @@ with col_input:
                 st.error(f"Failed to load session data: {e}")
                 progress_bar.progress(0)
 
-# Always display the graph if available
-if st.session_state.fig:
-    with col_graph:
-        st.pyplot(st.session_state.fig)
 
+if st.session_state.pcdr_img_buf:
+    with col_graph:
+            st.image(st.session_state.pcdr_img_buf)
     # Download button (Remains visible)
     st.download_button(
         label="📥 Download Graph",
-        data=st.session_state.img_buf,
+        data=st.session_state.pcdr_img_buf,
         file_name=f"F1_Driver_Position_{year}.png",
         mime="image/png",
     )
+
+    
+
+
