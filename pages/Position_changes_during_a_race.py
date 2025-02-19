@@ -77,7 +77,3 @@ if st.session_state.pcdr_img_buf:
         file_name=f"F1_Driver_Position_{year}.png",
         mime="image/png",
     )
-
-    
-
-
