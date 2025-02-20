@@ -1,14 +1,39 @@
 import streamlit as st
+from streamlit_javascript import st_javascript
+
 
 st.set_page_config(page_title="F1 Car Stats Visualizer", page_icon="🏎️", layout="wide")
 
 # Detect light or dark mode
 # is_dark_mode = st.get_option("theme.base") == "dark"
 
-# Custom CSS for Horizontal Card Slider with Light/Dark Mode Support
-card_bg_color = "rgba(255, 255, 255, 0.25)"
-card_text_color = "#333333" #if is_dark_mode else "#333333"
-card_shadow = "rgba(31, 38, 135, 0.37)"
+
+# Get the current theme
+st_theme = st_javascript("""window.getComputedStyle(window.parent.document.getElementsByClassName("stApp")[0]).getPropertyValue("color-scheme")""")
+print(st_theme)
+
+# Store the theme in session state to trigger a refresh
+if "theme" not in st.session_state:
+    st.session_state.theme = st_theme
+elif st.session_state.theme != st_theme:
+    st.session_state.theme = st_theme
+    st.rerun()  # Forces a refresh when theme changes
+
+# Define colors based on theme
+if st.session_state.theme == "dark":
+    card_bg_color = "rgb(252, 250, 250)"
+    card_text_color = "rgb(10, 10, 0)"
+    card_shadow = "rgb(188, 59, 64)"
+else:
+    card_bg_color = "rgb(252, 250, 250)"
+    card_text_color = "rgb(10, 10, 0)"
+    card_shadow = "rgb(188, 59, 64)"
+
+
+# # Custom CSS for Horizontal Card Slider with Light/Dark Mode Support
+# card_bg_color = "rgb(174, 246, 244)"
+# card_text_color = "rgb(10, 10, 0)" #if is_dark_mode else "#333333"
+# card_shadow = "rgba(9, 131, 238, 1)"
 
 st.markdown(
     f"""
