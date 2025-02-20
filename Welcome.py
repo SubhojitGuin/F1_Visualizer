@@ -58,19 +58,19 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 # Page Names, Descriptions, and Icons
 pages = [
-    ("Draw_a_track_map_with_numbered_corners", "Track Map", "Visualize a track map with numbered corners", "🌄", "https://cdni.autocarindia.com/ExtraImages/20201008073109_Nanoli-speedway-Pune-track.jpg"),
-    ("Driver_Laptimes_Distribution_Visualization", "Laptimes Distribution", "Analyze driver lap time distributions", "📉", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Driver_Laptimes_Scatterplot", "Laptimes Scatterplot", "Plot lap times on a scatter plot", "🔀", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Driver_specific_plot_styling", "Plot Styling", "Customize driver-specific plot styles", "🎨", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Fastest_lap_gear_shift", "Gear Shift Analysis", "Examine gear shifts during the fastest lap", "🚜", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Overlay_speed_traces_of_two_laps", "Speed Overlay", "Compare speed traces of two laps", "💨", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Plot_driver_standings_in_a_heatmap", "Standings Heatmap", "Visualize driver standings in a heatmap", "📊", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Plot_speed_traces_with_corner_annotations", "Speed + Corners", "Plot speed traces with corner data", "🏁", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Position_changes_during_a_race", "Position Changes", "Track position changes during a race", "🏎️", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Qualifying_results_overview", "Qualifying Results", "View qualifying results overview", "🏆", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Speed_visualization_on_track_map", "Speed on Track", "Visualize speed on the track map", "🚀", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Team_pace_comparison", "Team Pace Comparison", "Compare pace between teams", "💡", "https://via.placeholder.com/300?text=Track+Map"),
-    ("Tyre_strategies_during_a_race", "Tyre Strategies", "Analyze tyre strategies during a race", "💧", "https://via.placeholder.com/300?text=Track+Map"),
+    ("Draw_a_track_map_with_numbered_corners", "Track Map", "Visualize a track map with numbered corners", "🌄", "https://i.pinimg.com/originals/64/a8/08/64a8083d07b8c98923311cbc88fecafe.gif"),
+    ("Driver_Laptimes_Distribution_Visualization", "Laptimes Distribution", "Analyze driver lap time distributions", "📉", "https://i.pinimg.com/originals/f2/8b/62/f28b62e3c73e0991d51e6c0dcb412360.gif"),
+    ("Driver_Laptimes_Scatterplot", "Laptimes Scatterplot", "Plot lap times on a scatter plot", "🔀", "https://media3.giphy.com/media/326d5iOUoYY8N6uFPm/giphy.gif?cid=6c09b952i2u8rsaik85mq657uu14gw3p7wy8qay51b2hruqn&ep=v1_gifs_search&rid=giphy.gif&ct=g"),
+    ("Driver_specific_plot_styling", "Plot Styling", "Customize driver-specific plot styles", "🎨", "https://i.makeagif.com/media/12-28-2020/pmz0zh.gif"),
+    ("Fastest_lap_gear_shift", "Gear Shift Analysis", "Examine gear shifts during the fastest lap", "🚜", "https://i.gifer.com/embedded/download/3UA6.gif"),
+    ("Overlay_speed_traces_of_two_laps", "Speed Overlay", "Compare speed traces of two laps", "💨", "https://wallpapercave.com/wp/wp2856136.gif"),
+    ("Plot_driver_standings_in_a_heatmap", "Standings Heatmap", "Visualize driver standings in a heatmap", "📊", "https://i.pinimg.com/originals/8d/ba/39/8dba397fbba5800b488b36659a87854c.gif"),
+    ("Plot_speed_traces_with_corner_annotations", "Speed + Corners", "Plot speed traces with corner data", "🏁", "https://i.makeagif.com/media/4-18-2017/zn-bXZ.gif"),
+    ("Position_changes_during_a_race", "Position Changes", "Track position changes during a race", "🏎️", "https://giffiles.alphacoders.com/144/14449.gif"),
+    ("Qualifying_results_overview", "Qualifying Results", "View qualifying results overview", "🏆", "https://i.pinimg.com/originals/c9/bc/98/c9bc987940c4fca69fc9047ebbd61e9c.gif"),
+    ("Speed_visualization_on_track_map", "Speed on Track", "Visualize speed on the track map", "🚀", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/045656e1-2048-4b39-9f99-ea5eb41d9651/dgr2gme-0a4fae1d-9c31-454d-8f36-b01ff59b8958.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA0NTY1NmUxLTIwNDgtNGIzOS05Zjk5LWVhNWViNDFkOTY1MVwvZGdyMmdtZS0wYTRmYWUxZC05YzMxLTQ1NGQtOGYzNi1iMDFmZjU5Yjg5NTguZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QM9Df82jqvMQ4E7Y7gjzlZeT0WFfwsiQsminKTGTQgk"),
+    ("Team_pace_comparison", "Team Pace Comparison", "Compare pace between teams", "💡", "https://i.pinimg.com/originals/62/39/4d/62394d753859943e6a1a36443ef78795.gif"),
+    ("Tyre_strategies_during_a_race", "Tyre Strategies", "Analyze tyre strategies during a race", "💧", "https://i.pinimg.com/originals/41/7b/36/417b36f9e1c45c496505d5e45a20c1d9.gif"),
 ]
 
 st.markdown('<div class="container">', unsafe_allow_html=True)
