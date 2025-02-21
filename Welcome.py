@@ -53,7 +53,9 @@ st.markdown(
 )
 
 st.markdown('<div class="video-container">', unsafe_allow_html=True)
-st.video("assets\Skyfall.mp4", start_time=75, autoplay=True, loop=True)
+video_file = open("assets\Skyfall.mp4", "rb")
+video_bytes = video_file.read()
+st.video(video_bytes, start_time=75, autoplay=True, loop=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # Page Names, Descriptions, and Icons
