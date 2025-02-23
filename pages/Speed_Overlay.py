@@ -31,7 +31,9 @@ with col_input:
     # Initialize session state
     if 'session' not in st.session_state:
         st.session_state.session = None
+    if 'osttl_drivers' not in st.session_state:
         st.session_state.osttl_drivers = []
+    if 'osttl_plot_image' not in st.session_state:
         st.session_state.osttl_plot_image = None
 
     if st.button("Load Session"):

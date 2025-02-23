@@ -20,7 +20,11 @@ colormap = mpl.cm.plasma
 
 if "session" not in st.session_state:
     st.session_state.session = None
+
+if "drivers" not in st.session_state:
     st.session_state.drivers = []
+
+if "svot_image" not in st.session_state:
     st.session_state.svot_image = None
 
 with col_input:

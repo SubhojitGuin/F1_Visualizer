@@ -85,8 +85,8 @@ if st.session_state.race_results is not None:
         st.plotly_chart(fig , use_container_width=True)
 
         st.download_button(
-        label="📥 Download Graph",
-        data=fig.to_image(format="png"),
-        file_name=f"Heatmap_{year}.png",
-        mime="image/png"
-    )
+            label="📥 Download Graph",
+            data=fig.to_image(format="png"),
+            file_name=f"Heatmap_{year}.png",
+            mime="image/png"
+        )

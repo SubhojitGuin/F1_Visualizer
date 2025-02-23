@@ -38,7 +38,7 @@ with col_input:
                 st.error(f"Failed to load session data: {e}")
 
     if st.session_state.session:
-        drivers_selected = st.multiselect("Select Drivers", st.session_state.dscps_drivers, default=['PER', 'VER', 'RUS'])
+        drivers_selected = st.multiselect("Select Drivers", st.session_state.dscps_drivers, default=[])
         plot_option = st.radio("Plot Style", ["Basic Plot", "Sorted Legend", "Enhanced Style"])
 
         if st.button("Generate Plot"):
