@@ -23,7 +23,7 @@ if "pstc_img_buf" not in st.session_state:
 
 with col_input:
     st.write("### Select F1 Session")
-    year = st.selectbox("Year", list(range(2018, 2024)), index=3)
+    year = st.selectbox("Year", list(range(2018, 2025)), index=3)
     grand_prix = st.text_input("Grand Prix (e.g., Spanish Grand Prix)", "Spanish Grand Prix")
     session_type = st.selectbox("Session Type", ['FP1', 'FP2', 'FP3', 'Q', 'S', 'SS', 'SQ', 'R'], index=0)
     

@@ -7,12 +7,12 @@ import io
 
 
 # Page Configuration
-st.set_page_config(layout="wide", page_title="F1 Driver Laptimes Distibution Distribution", page_icon="🏎️")
+st.set_page_config(layout="wide", page_title="F1 Driver Laptimes Distibution", page_icon="🏎️")
 
 # FastF1's dark color scheme
 fastf1.plotting.setup_mpl(mpl_timedelta_support=True, misc_mpl_mods=False, color_scheme='fastf1')
 
-st.title("🏎️ F1 Driver Laptimes Distibution Distribution")
+st.title("🏎️ F1 Driver Laptimes Distibution")
 
 # Create two columns: Graph (Left) | User Input (Right)
 col_graph, col_input = st.columns([4, 1])
@@ -22,7 +22,7 @@ if "dldv_img_buf" not in st.session_state:
 
 with col_input:
     st.write("### Select F1 Session")
-    year = st.selectbox("Year", list(range(2018, 2024)), index=3)
+    year = st.selectbox("Year", list(range(2018, 2025)), index=3)
     grand_prix = st.text_input("Grand Prix (e.g., Austrian Grand Prix)", "Austrian Grand Prix")
     session_type = st.selectbox("Session Type", ['FP1', 'FP2', 'FP3', 'Q', 'S', 'SS', 'SQ', 'R'], index=0)
 

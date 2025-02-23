@@ -17,7 +17,7 @@ if "circuit_map_img_buf" not in st.session_state:
 
 with col_input:
     st.write("### Select F1 Session")
-    year = st.selectbox("Year", list(range(2018, 2024)), index=5)
+    year = st.selectbox("Year", list(range(2018, 2025)), index=5)
     gp = st.text_input("Grand Prix (e.g., Silverstone)", "Silverstone")
     session_type = st.selectbox("Session Type", ["R", "Q", "FP1", "FP2", "FP3"], index=1)
 

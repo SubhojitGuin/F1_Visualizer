@@ -24,7 +24,7 @@ if "dlc_drivers" not in st.session_state:
 
 with col_input:
     st.write("### Select F1 Session")
-    year = st.selectbox("Year", list(range(2018, 2026)), index=5)
+    year = st.selectbox("Year", list(range(2018, 2025)), index=5)
     grand_prix = st.text_input("Grand Prix (e.g., Azerbaijan)", "Azerbaijan")
     session_type = st.selectbox("Session Type", ['FP1', 'FP2', 'FP3', 'Q', 'S', 'SS', 'SQ', 'R'], index=7)
 

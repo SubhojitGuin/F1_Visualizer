@@ -6,12 +6,12 @@ import fastf1
 import fastf1.plotting
 
 # Set page configuration
-st.set_page_config(layout="wide", page_title="F1 Fastest Lap Visualization", page_icon="🏎️")
+st.set_page_config(layout="wide", page_title="F1 Speed Overlay Visualization", page_icon="🏎️")
 
 # Enable Matplotlib patches for plotting timedelta values and load FastF1's dark color scheme
 fastf1.plotting.setup_mpl(mpl_timedelta_support=True, misc_mpl_mods=False, color_scheme='fastf1')
 
-st.title("🏎️ F1 Fastest Lap Speed Comparison")
+st.title("🏎️ F1  Speed Overlay Visualization")
 
 # Create two columns: Graph (Left) | User Input (Right)
 col_graph, col_input = st.columns([4, 1])

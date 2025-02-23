@@ -21,7 +21,7 @@ if "flgs_img_buf" not in st.session_state:
 
 with col_input:
     st.write("### Select F1 Session")
-    year = st.selectbox("Year", list(range(2018, 2024)), index=3)
+    year = st.selectbox("Year", list(range(2018, 2025)), index=3)
     grand_prix = st.text_input("Grand Prix (e.g., Austrian Grand Prix)", "Austrian Grand Prix")
     session_type = st.selectbox("Session Type", ['FP1', 'FP2', 'FP3', 'Q', 'S', 'SS', 'SQ', 'R'], index=0)
 
@@ -60,7 +60,7 @@ with col_input:
                 ax.axis('equal')
                 ax.tick_params(labelleft=False, left=False, labelbottom=False, bottom=False)
 
-                plt.suptitle(f"Fastest Lap Gear Shift Visualization\n{lap['Driver']} - {session.event['EventName']} {session.event.year}")
+                plt.suptitle(f"Fastest Lap Gear Shift Visualization\n{lap['Driver']} - {grand_prix} {session.event.year}")
 
                 cbar = plt.colorbar(mappable=lc_comp, ax=ax, label="Gear", boundaries=np.arange(1, 10))
                 cbar.set_ticks(np.arange(1.5, 9.5))

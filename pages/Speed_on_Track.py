@@ -9,9 +9,9 @@ import matplotlib as mpl
 import io
 
 # Set page configuration
-st.set_page_config(layout="wide", page_title="F1 Fastest Lap Visualization", page_icon="🏁")
+st.set_page_config(layout="wide", page_title="F1 Speed On Track Visualization", page_icon="🏁")
 
-st.title("🏁 F1 Fastest Lap Speed Visualization")
+st.title("🏁 F1 Speed On Track Visualization")
 
 # Create two columns: Graph (Left) | User Input (Right)
 col_graph, col_input = st.columns([4, 1])
@@ -104,6 +104,6 @@ if st.session_state.svot_image:
     st.download_button(
         label="📥 Download Graph",
         data=st.session_state.svot_image,
-        file_name=f"F1_{year}_{ses}_{driver}_speed.png",
+        file_name=f"F1_{year}_{ses}_{driver}_speed_on_track.png",
         mime="image/png"
     )

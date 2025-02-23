@@ -22,7 +22,7 @@ if 'session' not in st.session_state:
 
 with col_input:
     st.write("### Select F1 Session")
-    year = st.selectbox("Year", list(range(2018, 2026)), index=5)
+    year = st.selectbox("Year", list(range(2018, 2025)), index=5)
     grand_prix = st.text_input("Grand Prix (e.g., Azerbaijan)", "Azerbaijan")
     session_type = st.selectbox("Session Type", ['FP1', 'FP2', 'FP3', 'Q', 'S', 'SS', 'SQ', 'R'], index=7)
 
@@ -38,7 +38,7 @@ with col_input:
                 st.error(f"Failed to load session data: {e}")
 
     if st.session_state.session:
-        drivers_selected = st.multiselect("Select Drivers", st.session_state.dscps_drivers, default=['HAM', 'PER', 'VER', 'RUS'])
+        drivers_selected = st.multiselect("Select Drivers", st.session_state.dscps_drivers, default=['PER', 'VER', 'RUS'])
         plot_option = st.radio("Plot Style", ["Basic Plot", "Sorted Legend", "Enhanced Style"])
 
         if st.button("Generate Plot"):
@@ -67,7 +67,7 @@ with col_input:
                 else:
                     ax.legend()
 
-                plt.suptitle(f"Lap Time Comparison\n{session.event['EventName']} {year} {session_type}")
+                plt.suptitle(f"Lap Time Comparison\n{grand_prix} {year} {session_type}")
 
                 buf = io.BytesIO()
                 fig.savefig(buf, format='png', bbox_inches="tight")
@@ -86,6 +86,6 @@ if st.session_state.dscps_plot_image:
     st.download_button(
         label="📥 Download Plot",
         data=st.session_state.dscps_plot_image,
-        file_name=f"{grand_prix}_{year}_{session_type}_laptimes.png",
+        file_name=f"{grand_prix}_{year}_{session_type}_plot_styling.png",
         mime="image/png"
     )

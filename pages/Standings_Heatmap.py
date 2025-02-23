@@ -6,7 +6,7 @@ from fastf1.ergast import Ergast
 import io
 
 # Page configuration
-st.set_page_config(layout="wide", page_title="F1 Season Points Visualization", page_icon="🏎️")
+st.set_page_config(layout="wide", page_title="F1 Heatmap Visualization", page_icon="🏎️")
 st.title("🏎️ F1 Season Points Heatmap")
 
 # Initialize session state variables
@@ -20,7 +20,7 @@ if "heatmap_img_buf" not in st.session_state:
 col_graph, col_input = st.columns([4, 1])
 with col_input:
     st.write("### Select F1 Season")
-    year = st.selectbox("Year", list(range(2018, 2024)), index=4)
+    year = st.selectbox("Year", list(range(2018, 2025)), index=4)
 
     if st.button("Generate Visualization"):
         with st.spinner("Fetching race data..."):
